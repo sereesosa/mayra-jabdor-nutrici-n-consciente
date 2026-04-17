@@ -1,6 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
-import { recipes } from "@/data/recipes";
+import { recipes, type Recipe } from "@/data/recipes";
 import { ArrowLeft, Clock, Users } from "lucide-react";
 
 export const Route = createFileRoute("/recetas/$slug")({
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/recetas/$slug")({
 });
 
 function RecipeDetail() {
-  const { recipe } = Route.useLoaderData();
+  const { recipe } = Route.useLoaderData() as { recipe: Recipe };
   return (
     <Layout>
       <article className="max-w-4xl mx-auto px-6 py-12 md:py-20">
